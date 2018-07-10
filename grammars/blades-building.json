@@ -1,0 +1,20 @@
+{
+	"origin": ["#building#"],
+	"building": ["#article.capitalize# #use# is #makeverb# of #material##exterior-detail-clause# #inside#"],
+	"exterior-detail-clause": [", with #exterior-details#.", ". #exterior-details.capitalize# sets it aside from nearby structures."],
+	"inside": ["#sound# #furnishings#", "#furnishings# #sound#"],
+	"sound": ["The sound of #indoor-ambiance# dominates the inside of the building."],
+	"furnishings": ["#age.capitalize# #things# exist."],
+	"article": ["the", "this"],
+	"makeverb": ["built", "made", "constructed", "fashioned"],
+	"material": ["grey brick", "stone & timbers", "cut stone blocks", "wooden boards", "plaster board & timbers", "metal sheeting"],
+	"exterior-details": ["tile work", "iron work", "glass work", "stone work", "wood work", "landscaping"],
+	"use": ["#use-common#", "#use-common#", "#use-common#", "#use-common#", "#use-common#", "#use-rare#"],
+	"use-common": ["bunk house", "inn", "tavern", "gambling hall", "drug den", "brothel", "market", "workshop", "bakery", "butchery", "forge", "tailory", "work house", "goat stables", "brewery", "watch post", "court", "jail", "dock", "ruin", "row house", "tenement", "apartment building", "small house", "bath house", "shrine", "tattooist", "physicker", "fighting pit", "grotto", "warehouse", "stockyard", "factory", "refinery", "eelery", "mushroom garden"],
+	"use-rare": ["market house", "restaurant", "bar", "academy", "salon", "cafe", "floristry", "tobacconist", "book shop", "jeweler", "clothier", "gallery", "apothecary", "horse stable", "distillery", "vintner", "master artisan", "boat house", "theater", "opera house", "apartment building", "townhouse", "manor house", "villa", "clinic", "temple", "cistern", "watch post", "monument", "archive", "spiritualist", "bank", "alchemist", "power plant", "radiant energy garden"],
+	"indoor-ambiance": ["dripping water", "creaking floorboards", "roaring fires",  "buzzing electric lights", "ticking clockworks"],
+	"things": ["plants and flowers", "wall hangings", "artwork", "shuttered windows",  "smoky lamps", "heavy curtains", "thick carpet", "dust", "detritus", "wear & damage"],
+	"age": ["threadbare", "tattered", "utilitarian", "elegant", "lush", "comfortable", "rough-spun simplicity", "spartan, austere"],
+	"architecture": ["circular stair", "ladder", "secret door", "catwalk", "skylight", "balcony", "cellar"],
+	"temp": ["drafty", "cold", "stout", "quiet", "cozy", "warm", "vaulted", "spacious", "low", "cramped", "rickety", "ramshackle"]
+}
