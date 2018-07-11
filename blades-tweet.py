@@ -31,6 +31,8 @@ def generate():
         if len(score) > args.maxlen:
             score = ''
 
+    score = ' '.join(score.split())
+
     if args.print:
         print(score)
     if args.tweet:
