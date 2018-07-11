@@ -8,5 +8,5 @@ Stuff I used:
 
 * John Harper's [Blades in the Dark](https://bladesinthedark.com/), a tabletop RPG
 * Kate Compton's [Tracery](https://tracery.io/)
-** Allison Parrish's awesome [pytracery](https://github.com/aparrish/pytracery) port of Tracery
+* Allison Parrish's awesome [pytracery](https://github.com/aparrish/pytracery) port of Tracery
 * [Tweepy](http://www.tweepy.org), which is nice and simple
