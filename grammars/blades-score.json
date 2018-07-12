@@ -62,9 +62,9 @@
 	"agenda": ["agenda", "plans", "plot", "scheme", "machinations", "conspiracy"],
 	"secret": ["secret", "covert", "hidden", "sinister"],
 
-	"connection": ["a crew member's friend", "a rival of one of the scoundrels", "a scoundrel's vice purveyor", "one of the crew's contacts", "a Doskvol notable", "a #weirdConnection#", "#faction#"],
+	"connection": ["a crew member's friend", "the foe of one of the scoundrels", "a scoundrel's vice purveyor", "one of the crew's contacts", "a Doskvol notable", "a #weirdConnection#", "#faction#"],
 	"weirdConnection": ["ghost", "demon", "god"],
-	"connectionType": ["is pals with", "hates", "loves", "is the rival of", "is married to", "is courting", "lives with", "owes money to", "works with", "works for", "employs"],
+	"connectionType": ["is pals with", "hates", "loves", "is a rival of", "is married to", "is courting", "lives with", "owes money to", "works with", "works for", "employs"],
 	
 	"faction": [	
 		"[fVerbIs:are][fVerbDo:do]the Unseen", 	
@@ -115,10 +115,12 @@
 		"And why #fVerbDo# #theFaction# care?", 
 		"But why #fVerbIs# #theFaction# involved?",
 		"Why #fVerbIs# #theFaction# upset about this?",
-		"And why #fVerbIs# #theFaction# eager about this?",
+		"Why #fVerbIs# #theFaction# eager to see what happens?",
+		"And why #fVerbIs# #theFaction# excited about this?",
 		"Why #fVerbIs# #theFaction# interested in this?",
 		"How #fVerbIs# #theFaction# involved?",
-		"And why #fVerbIs# #theFaction# unhappy?",
+		"And why does this anger #theFaction#?",
+		"",
 		""
 	]
 }
