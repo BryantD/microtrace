@@ -7,7 +7,7 @@
 		"#baseScore.capitalize#. The #crew# may discover that #twist#. #factionInvolvement#",
 		"#baseScore.capitalize#. #factionInvolvement# The #crew# may discover that #twist#.",
 		"#baseScore.capitalize#. The #crew#'s plans may change when they find out that #twist#. #factionInvolvement#",
-		"The #crew# will wish they knew #twist# in advance when #baseScore#. #factionInvolvement#",
+		"The #crew# will wish they'd known #twist# in advance when #baseScore#. #factionInvolvement#",
 		"#baseScore.capitalize#. #factionInvolvement# The #crew#'s plans may change when they find out that #twist#."
 	],
 	"baseScore": [
