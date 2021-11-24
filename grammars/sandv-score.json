@@ -21,7 +21,7 @@
     "client": ["#civilian#", "#syndicate#", "#hegemonic#", "#esoteric-client#"],
     "element": ["#theTarget#", "#theClient#"],
     "work": ["#covert-work#", "#violence-work#", "#underworld-work#", "#other-work#"],
-    "building": ["home", "job site", "favorite bar", "starship", "space station"],
+    "building": ["home", "job site", "favorite bar", "starship", "space station", "asteroid base", "secret colony"],
 
     "crew": ["[crewVerb:is]crew"],  
     "hire-word": ["hires", "engages", "contracts", "needs", "employs"],
@@ -37,7 +37,7 @@
     "violence-work": ["assassinate", "liberate", "ransom", "terrorize", "escort", "destroy", "deface the #building# of", "raid", "defend", "rob", "strongarm"],
     "underworld-work": ["escort", "guard", "smuggle", "run a courier route for", "blackmail", "discredit", "run a con on", "compile a dossier on", "locate", "hide", "negotiate with", "threaten"],
     "other-work": ["infect", "cure", "broadcast", "secretly record", "capture", "tag", "explore", "turn on", "turn off", "hack", "download"],
-    "valuable": ["case full of hard currency", "papers", "title to a ship", "Precursor artifact", "bespoke urbot"],
+    "valuable": ["case full of hard currency", "papers", "title to a ship", "Precursor artifact", "bespoke urbot", "map to a lost colony"],
     
     "location": ["Rin", "Holt", "Iota", "Brekk", "the planet where the crew is right now", "several systems away"],
     
@@ -50,7 +50,7 @@
         "the job #furthers# a pirate band's #agenda#",
         "the job has a strong Precursor or Way line presence",
         "the job is not planetside, or easy to get to",
-        "the job aids a rebellious cause",
+        "the job aids a rebel's cause",
         "a mystic or visions have alerted #theTarget# ahead of time",
         "the location is guarded or watched by Hegemonic forces",
         "this job furthers a Guild’s #agenda#",
@@ -67,7 +67,7 @@
     "secret": ["secret", "covert", "hidden", "sinister"],
 
     "connection": ["a crew member's friend", "a crew member's rival", "#heritageNPC.a# #client#", "one of the crew's contacts", "a notable from the local star system", "#faction#"],
-    "connectionType": ["is pals with", "hates", "loves", "is a rival of", "is married to", "is shacked up with", "is flirting with", "lives with", "owes money to", "works with", "works for", "employs"],
+    "connectionType": ["is pals with", "hates", "loves", "is a rival of", "is married to", "is shacked up with", "is flirting with", "lives with", "owes money to", "owes their freedom to", "works with", "works for", "employs"],
     "heritageNPC": ["Imperial", "Spacer", "colonist", "Guild-manufactured", "wandering", "xeno"],
     
     "faction": [    
@@ -109,14 +109,14 @@
         "[fVerbIs:is][fVerbDo:does]Yaru, the Makers Guild"
     ],
     "factionInvolvement": [
-        "And why #fVerbDo# #theFaction# care?", 
-        "But why #fVerbIs# #theFaction# involved?",
-        "Why #fVerbIs# #theFaction# upset about this?",
-        "Why #fVerbIs# #theFaction# eager to see what happens?",
-        "And why #fVerbIs# #theFaction# excited about this?",
+        "But why #fVerbDo# #theFaction# care?", 
+        "And why #fVerbIs# #theFaction# involved?",
+        "Rumor is that #theFaction#  #fVerbIs# upset about this.",
+        "#theFaction.capitalize# paid through the nose to witness the outcome.",
+        "#theFaction.capitalize# #fVerbIs# oddly excited about this?",
         "Why #fVerbIs# #theFaction# interested in this?",
         "How #fVerbIs# #theFaction# involved?",
-        "And why does this anger #theFaction#?",
+        "And why #fVerbIs# #theFaction# so damned angry about all this?",
         "",
         ""
     ]
