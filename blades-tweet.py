@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright 2018 Bryant Durrell
+# Copyright 2018-2021 Bryant Durrell
 # 
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -30,23 +30,33 @@
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import argparse
+import configparser
 import json
 import tweepy
 import tracery
 from tracery.modifiers import base_english
-from credentials import *
 
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_token_secret)
-api = tweepy.API(auth)
 
 def generate():
-    parser = argparse.ArgumentParser(description='Blades in the Dark tweetbot')
+    parser = argparse.ArgumentParser(description='Tracery-based tweetbot')
     parser.add_argument('--grammar', required=True, help='JSON grammar')
     parser.add_argument('--maxlen', default=280, type=int, help='Max tweet length')
     parser.add_argument('--print', help='Print score', action='store_true')
     parser.add_argument('--tweet', help='Tweet score', action='store_true')
+    parser.add_argument('--credentials', help='Credentials file', required=True)
     args = parser.parse_args()
+    
+    config = configparser.ConfigParser()
+    config.read(args.credentials)
+    consumer_key = config['keys']['consumer_key']
+    consumer_secret = config['keys']['consumer_secret']
+    access_token = config['keys']['access_token']
+    access_token_secret = config['keys']['access_token_secret']
+
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
+    api = tweepy.API(auth)
+
 
     with open(args.grammar) as data_file:
         rules = json.load(data_file)
