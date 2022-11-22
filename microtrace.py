@@ -86,7 +86,7 @@ def tweet(config, text):
 def generate():
     # Leaving this as argparse rather than migrating to click because I want
     # to keep it simple
-    parser = argparse.ArgumentParser(description="Tracery-based tweetbot")
+    parser = argparse.ArgumentParser(description="Tracery-based microblogging bot")
     parser.add_argument("--grammar", required=True, help="JSON grammar")
     parser.add_argument(
         "--maxlen", default=280, type=int, help="Maximum message length"

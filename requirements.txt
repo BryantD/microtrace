@@ -1,0 +1,4 @@
+Mastodon.py==1.6.3
+tomli==2.0.1
+tracery==0.1.1
+tweepy==4.12.1
