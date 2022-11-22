@@ -72,12 +72,14 @@ def tweet(config, text):
         auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
         auth.set_access_token(access_token, access_token_secret)
         api = tweepy.API(auth)
-    except:
+    except tweepy.errors.TweepyException as e:
+        print(f"Failed authorization: {e}")
         return False
         
     try:
         api.update_status(text)
-    except:
+    except tweepy.errors.TweepyException as e:
+        print(f"Error posting: {e}")
         return False
 
 def generate():
