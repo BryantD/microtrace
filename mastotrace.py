@@ -32,7 +32,7 @@
 import argparse
 import configparser
 import json
-from mastodon import Mastodon
+from mastodon import Mastodon, MastodonError
 import tweepy
 import tracery
 from tracery.modifiers import base_english
@@ -45,19 +45,16 @@ def toot(config, text):
     except KeyError as e:
         print(f"Key {e} not found!")
         return False
-        
-    try:
-        mastodon = Mastodon(
-            access_token=access_token,
-            api_base_url=base_url)
-    except MastodonUnauthorizedError as e:
-        print(f"Bad access token")
-        return False
-        
+    
+    # Note: this isn't where exceptions are thrown so no error handling here    
+    mastodon = Mastodon(
+        access_token=access_token,
+        api_base_url=base_url)
+            
     try:
         mastodon.toot(text)
-    except:
-        print(f"Failed to send toot")
+    except MastodonError as e:
+        print(f"Error posting: {e}")
         return False
         
     return True
@@ -71,11 +68,17 @@ def tweet(config, text):
     except KeyError as e:
         print(f"Key {e} not found!")
 
-    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-    auth.set_access_token(access_token, access_token_secret)
-    api = tweepy.API(auth)
-
-    api.update_status(text)
+    try:
+        auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+        auth.set_access_token(access_token, access_token_secret)
+        api = tweepy.API(auth)
+    except:
+        return False
+        
+    try:
+        api.update_status(text)
+    except:
+        return False
 
 def generate():
     parser = argparse.ArgumentParser(description='Tracery-based tweetbot')
