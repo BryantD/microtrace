@@ -33,47 +33,83 @@ import argparse
 import configparser
 import json
 from mastodon import Mastodon
+import tweepy
 import tracery
 from tracery.modifiers import base_english
+import tomli
 
+def toot(config, text):
+    try:
+        access_token = config["mastodon"]["access_token"]
+        base_url = config["mastodon"]["base_url"]
+    except KeyError as e:
+        print(f"Key {e} not found!")
+        return False
+        
+    try:
+        mastodon = Mastodon(
+            access_token=access_token,
+            api_base_url=base_url)
+    except MastodonUnauthorizedError as e:
+        print(f"Bad access token")
+        return False
+        
+    try:
+        mastodon.toot(text)
+    except:
+        print(f"Failed to send toot")
+        return False
+        
+    return True
+
+def tweet(config, text):
+    try:
+        consumer_key = config['twitter']['consumer_key']
+        consumer_secret = config['twitter']['consumer_secret']
+        access_token = config['twitter']['access_token']
+        access_token_secret = config['twitter']['access_token_secret']
+    except KeyError as e:
+        print(f"Key {e} not found!")
+
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
+    api = tweepy.API(auth)
+
+    api.update_status(text)
 
 def generate():
     parser = argparse.ArgumentParser(description='Tracery-based tweetbot')
     parser.add_argument('--grammar', required=True, help='JSON grammar')
     parser.add_argument('--maxlen', default=280, type=int, help='Maximum message length')
-    parser.add_argument('--print', help='Print score', action='store_true')
-    parser.add_argument('--toot', help='Toot score (Mastodon)', action='store_true')
+    parser.add_argument('--print', help='Print', action='store_true')
+    parser.add_argument('--toot', help='Toot', action='store_true')
+    parser.add_argument('--tweet', help='Tweet', action='store_true')
     parser.add_argument('--config', help='Config file', required=True)
     args = parser.parse_args()
     
-    config = configparser.ConfigParser()
-    config.read(args.credentials)
-    consumer_key = config['keys']['consumer_key']
-    consumer_secret = config['keys']['consumer_secret']
-    access_token = config['keys']['access_token']
-    access_token_secret = config['keys']['access_token_secret']
-
+    with open(args.config, mode="rb") as config_file:
+        config = tomli.load(config_file)
+   
     with open(args.grammar) as data_file:
         rules = json.load(data_file)
 
     grammar = tracery.Grammar(rules)
     grammar.add_modifiers(base_english)
 
-    body = ''
-    while len(body) == 0:
-        body = grammar.flatten('#origin#')
-        if len(body) > args.maxlen:
-            body = ''
+    text = ''
+    while len(text) == 0:
+        text = grammar.flatten('#origin#')
+        if len(text) > args.maxlen:
+            text = ''
 
-    body = ' '.join(body.split())
+    text = ' '.join(text.split())
 
     if args.print:
-        print(body)
-    if args.mastodon:
-	mastodon = Mastodon(
-	    access_token=mastodon_access_token,
-	    api_base_url = 'https://botsin.space')
-	mastodon.toot(text)
+        print(text)
+    if args.toot:
+        toot(config, text)
+    if args.tweet:
+        tweet(config, text)
 
 if __name__ == '__main__':
     generate()
