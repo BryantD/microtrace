@@ -6,6 +6,8 @@ This used to be just my Twitter Blades in the Dark bot but when I got
 off Twitter I went the rest of the way towards generalizing it. You can
 find the output from one bot using this at https://botsin.space/@doskvolscores.
 
+The old version of this is available at the branch blades-bot.
+
 ## Usage
 
 ```
